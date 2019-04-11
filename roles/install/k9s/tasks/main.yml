@@ -1,0 +1,9 @@
+---
+- name: k9s
+  tags: k9s
+  include_role:
+    name: install
+  vars:
+    install_version: "0.2.3"
+    install_url: https://github.com/derailed/k9s/releases/download/{{ install_version }}/k9s_{{ install_version }}_Linux_x86_64.tar.gz
+    install_tests: []

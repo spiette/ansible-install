@@ -1,0 +1,26 @@
+---
+- name: install software
+  hosts: localhost
+  roles:
+    - role: install/terraform
+      tags: terraform
+    - role: install/terragrunt
+      tags: terragrunt
+    - role: install/helm
+      tags: helm
+    - role: install/ct
+      tags: ct
+    - role: install/minikube
+      tags: minikube
+    - role: install/rke
+      tags: rke
+    - role: install/go-jira
+      tags: go-jira
+    - role: install/cfssl
+      tags: cfssl
+    - role: install/cfssljson
+      tags: cfssljson
+    - role: install/gcloud
+      tags: gcloud
+    - role: install/k9s
+      tags: k9s

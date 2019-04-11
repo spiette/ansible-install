@@ -1,0 +1,14 @@
+---
+- name: terraform
+  tags: terraform
+  include_role:
+    name: install
+  vars:
+    install_version: 0.11.13
+    install_url: >
+      https://releases.hashicorp.com/terraform/{{ install_version }}/terraform_{{ install_version }}_linux_amd64.zip
+    install_binaries:
+      - terraform
+    install_tests:
+      - command: terraform version
+        result: "Terraform v{{ install_version }}"

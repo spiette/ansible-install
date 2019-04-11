@@ -1,0 +1,15 @@
+---
+- name: minikube
+  tags: minikube
+  include_role:
+    name: install
+  vars:
+    install_name: minikube
+    install_version: "latest"
+    install_url: "https://storage.googleapis.com/minikube/releases/{{ install_version }}/minikube-linux-amd64"
+    install_tests:
+      - command: minikube version
+        result: "minikube version:"
+    install_binaries:
+      - src: minikube-linux-amd64
+        dest: minikube

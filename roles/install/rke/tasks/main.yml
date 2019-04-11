@@ -1,0 +1,15 @@
+---
+- name: rke
+  tags: rke
+  include_role:
+    name: install
+  vars:
+    install_name: rke
+    install_version: "0.1.17"
+    install_url: "https://github.com/rancher/rke/releases/download/v{{ install_version }}/rke_linux-amd64"
+    install_tests:
+      - command: "rke --version"
+        result: "rke version v{{ install_version }}"
+    install_binaries:
+      - src: rke_linux-amd64
+        dest: rke

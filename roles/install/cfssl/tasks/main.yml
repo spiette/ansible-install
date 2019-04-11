@@ -1,0 +1,15 @@
+---
+- name: cfssl
+  tags: cfssl
+  include_role:
+    name: install
+  vars:
+    install_name: cfssl
+    install_version: "1.2"
+    install_url: https://pkg.cfssl.org/R{{ install_version }}/cfssl_linux-amd64
+    install_binaries:
+      - src: cfssl_linux-amd64
+        dest: cfssl
+    install_tests:
+      - command: cfssl version
+        result: "Version: {{ install_version }}"

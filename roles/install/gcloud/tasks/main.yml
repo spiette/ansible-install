@@ -1,0 +1,14 @@
+---
+- name: gcloud
+  tags: gcloud
+  include_role:
+    name: install
+  vars:
+    install_version: "228.0.0"
+    install_url: "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-{{ install_version }}-linux-x86_64.tar.gz"
+    install_binaries:
+      - google-cloud-sdk/bin/gcloud
+      - google-cloud-sdk/bin/gsutil
+      - google-cloud-sdk/bin/bq
+    install_tests: []
+

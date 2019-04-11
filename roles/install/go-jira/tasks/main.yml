@@ -1,0 +1,15 @@
+---
+- name: go-jira
+  tags: go-jira
+  include_role:
+    name: install
+  vars:
+    install_name: go-jira
+    install_version: "1.0.20"
+    install_url: "https://github.com/Netflix-Skunkworks/go-jira/releases/download/v{{ install_version }}/jira-linux-amd64"
+    install_binaries:
+      - src: jira-linux-amd64
+        dest: jira
+    install_tests:
+      - command: jira version
+        result: "{{ install_version }}"

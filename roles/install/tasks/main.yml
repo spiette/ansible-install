@@ -1,0 +1,40 @@
+---
+- name: create install_cache_dir
+  file:
+    path: "{{ install_cache_dir }}"
+    state: directory
+
+- name: get tarball
+  get_url:
+    url: "{{ install_url }}"
+    dest: "{{ install_cache_dir }}"
+  register: install_download
+
+- name: unarchive
+  unarchive:
+    src: "{{ install_download.dest }}"
+    dest: "{{ install_cache_dir }}"
+    remote_src: true
+  register: install_unarchive
+  when: install_download.dest|splitext|last in install_archive_extensions
+
+- name: copy binaries
+  copy:
+    remote_src: true
+    src: "{{ install_download.dest|dirname }}/{{ item.src|default(item) }}"
+    dest: "{{ install_dest_dir }}/{{ item.dest|default(item)|basename }}"
+    mode: "0755"
+  loop: "{{ install_binaries }}"
+
+- name: run tasks
+  action: "{{ item.action }}"
+  args: "{{ item.args }}"
+  loop: "{{ install_tasks }}"
+  when: install_tasks|length > 0
+
+- name: test installation
+  command: "{{ item.command }}"
+  changed_when: false
+  loop: "{{ install_tests }}"
+  register: install_test_final
+  failed_when: install_test_final.stdout.find(item.result) != 0
