@@ -1,0 +1,15 @@
+---
+- name: kustomize
+  tags: kustomize
+  include_role:
+    name: install
+  vars:
+    install_name: kustomize
+    install_version: "2.0.3"
+    install_url: "https://github.com/kubernetes-sigs/{{ install_name }}/releases/download/v{{ install_version }}/{{ install_name }}_{{ install_version }}_linux_amd64"
+    install_tests:
+      - command: "kustomize version"
+        result: "Version: {KustomizeVersion:{{ install_version }}"
+    install_binaries:
+      - src: "{{ install_name }}_{{ install_version }}_linux_amd64"
+        dest: "{{ install_name }}"
