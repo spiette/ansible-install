@@ -8,6 +8,8 @@
       tags: terragrunt
     - role: install/helm
       tags: helm
+    - role: install/helmfile
+      tags: helmfile
     - role: install/kustomize
       tags: kustomize
     - role: install/ct
