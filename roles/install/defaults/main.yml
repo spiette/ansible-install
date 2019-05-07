@@ -3,8 +3,11 @@ install_cache_dir: "{{ ansible_env.HOME + '/.cache/install' }}"
 install_dest_dir: ~/bin
 install_tasks: []
 install_binaries: []
-install_archive_extensions:
+install_uncompress_extensions:
   - .gz
-  - .bz2
+install_archive_extensions:
+  - .tar.gz
+  - .tar.bz2
+  - .tar.xz
   - .zip
   - .rar

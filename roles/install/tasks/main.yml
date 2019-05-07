@@ -18,6 +18,10 @@
   register: install_unarchive
   when: install_download.dest|splitext|last in install_archive_extensions
 
+- name: uncompress
+  command: gunzip "{{ install_cache_dir + '/' + install_download.dest|basename }}"
+  when: install_download.dest|splitext|last in install_uncompress_extensions
+
 - name: copy binaries
   copy:
     remote_src: true
