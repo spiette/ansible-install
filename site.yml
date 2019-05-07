@@ -12,6 +12,8 @@
       tags: helmfile
     - role: install/kustomize
       tags: kustomize
+    - role: install/ketall
+      tags: ketall
     - role: install/ct
       tags: ct
     - role: install/minikube
