@@ -1,0 +1,9 @@
+---
+- name: ketall
+  tags: ketall
+  include_role:
+    name: install
+  vars:
+    install_version: "1.2.0"
+    install_url: https://github.com/corneliusweig/ketall/releases/download/v{{ install_version }}/ketall-linux-amd64.gz
+    install_tests: []
