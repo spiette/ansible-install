@@ -1,0 +1,14 @@
+---
+- name: rancher
+  tags: rancher
+  include_role:
+    name: install
+  vars:
+    install_version: v2.2.0
+    install_url: >
+      https://github.com/rancher/cli/releases/download/{{ install_version }}/rancher-linux-amd64-{{ install_version }}.tar.gz
+    install_binaries:
+      - rancher-v2.2.0/rancher
+    install_tests:
+      - command: rancher --version
+        result: "rancher version {{ install_version }}"
