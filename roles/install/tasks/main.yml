@@ -16,11 +16,14 @@
     dest: "{{ install_cache_dir }}"
     remote_src: true
   register: install_unarchive
-  when: install_download.dest|splitext|last in install_archive_extensions
+  when: install_download.dest|regex_search(install_archive_regex) != -1
 
-- name: uncompress
+- name: gunzip
   command: gunzip "{{ install_cache_dir + '/' + install_download.dest|basename }}"
-  when: install_download.dest|splitext|last in install_uncompress_extensions
+  when:
+    - install_download.dest|splitext|last == ".gz"
+    - install_download.dest|regex_search(install_archive_regex) == -1
+
 
 - name: copy binaries
   copy:

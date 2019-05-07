@@ -5,9 +5,10 @@ install_tasks: []
 install_binaries: []
 install_uncompress_extensions:
   - .gz
+install_archive_regex: '\.(rar|zip|tgz|tar(|\.(gz|bz2|xz)))$'
 install_archive_extensions:
-  - .tar.gz
-  - .tar.bz2
-  - .tar.xz
-  - .zip
-  - .rar
+  - tar.gz
+  - tar.bz2
+  - tar.xz
+  - zip
+  - rar
