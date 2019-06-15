@@ -12,6 +12,8 @@
       tags: helmfile
     - role: install/kustomize
       tags: kustomize
+    - role: install/kubeval
+      tags: kubeval
     - role: install/ketall
       tags: ketall
     - role: install/rancher
