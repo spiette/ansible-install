@@ -1,0 +1,9 @@
+---
+- name: kubeval
+  tags: kubeval
+  include_role:
+    name: install
+  vars:
+    install_version: "0.10.0"
+    install_url: https://github.com/instrumenta/kubeval/releases/download/{{ install_version }}/kubeval-linux-amd64.tar.gz
+    install_tests: []
