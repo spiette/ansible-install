@@ -16,6 +16,8 @@
       tags: kubeval
     - role: install/ketall
       tags: ketall
+    - role: install/img
+      tags: img
     - role: install/rancher
       tags: rancher
     - role: install/ct
