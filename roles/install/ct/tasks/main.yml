@@ -4,6 +4,7 @@
   include_role:
     name: install
   vars:
+    install_unarchive_enabled: false
     install_version: "0.9.0"
     install_url: "https://github.com/coreos/container-linux-config-transpiler/releases/download/v{{ install_version }}/ct-v{{ install_version }}-x86_64-unknown-linux-gnu"
     install_tests:

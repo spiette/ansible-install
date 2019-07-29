@@ -4,6 +4,7 @@
   include_role:
     name: install
   vars:
+    install_unarchive_enabled: false
     install_name: cfssljson
     install_version: "1.2"
     install_url: https://pkg.cfssl.org/R{{ install_version }}/cfssljson_linux-amd64

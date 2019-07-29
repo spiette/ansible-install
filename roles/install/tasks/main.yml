@@ -16,7 +16,7 @@
     dest: "{{ install_cache_dir }}"
     remote_src: true
   register: install_unarchive
-  when: install_download.dest|regex_search(install_archive_regex) != -1
+  when: install_unarchive_enabled and install_download.dest|regex_search(install_archive_regex) != -1
 
 - name: gunzip
   command: gunzip "{{ install_cache_dir + '/' + install_download.dest|basename }}"
