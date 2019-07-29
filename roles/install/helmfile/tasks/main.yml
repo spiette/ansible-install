@@ -5,7 +5,7 @@
     name: install
   vars:
     install_name: helmfile
-    install_version: "0.47.0"
+    install_version: "0.67.0"
     install_url: "https://github.com/roboll/{{ install_name }}/releases/download/v{{ install_version }}/{{ install_name }}_linux_amd64"
     install_tests:
       - command: "helmfile --version"
